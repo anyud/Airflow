@@ -10,7 +10,7 @@ default_args = {
 }
 
 # Đường dẫn SQL trong container
-SQL_DIR = '/opt/airflow/sql'
+SQL_DIR = '/opt/airflow/sql/bronze'
 
 # Khởi tạo DAG với cấu hình và template_searchpath
 with DAG(
