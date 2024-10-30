@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS bronze.Customer (
+CREATE TABLE IF NOT EXISTS bronze.Customer_staging (
     Customer_id SERIAL PRIMARY KEY,       -- Khóa chính, tự động tăng
     Name VARCHAR(255),                    -- Có thể để null
     Email VARCHAR(255),                   -- Có thể để null
