@@ -1,5 +1,6 @@
 from airflow import DAG
 from airflow.providers.postgres.operators.postgres import PostgresOperator
+from airflow.operators.dummy import DummyOperator
 from datetime import datetime
 
 # Cấu hình các tham số mặc định cho DAG
