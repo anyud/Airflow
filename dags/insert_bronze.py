@@ -1,6 +1,7 @@
 from airflow import DAG
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.operators.dummy import DummyOperator
+from airflow.sensors.external_task import ExternalTaskSensor
 from datetime import datetime
 
 # Cấu hình các tham số mặc định cho DAG
@@ -22,7 +23,7 @@ with DAG(
     template_searchpath=SQL_DIR,  # Đường dẫn để tìm kiếm file SQL
     tags=['etl', 'load', 'bronze']
 ) as dag:
-
+ 
     start = DummyOperator(
         task_id = 'start'
     )
@@ -33,7 +34,6 @@ with DAG(
         postgres_conn_id='Airflow_postgres',
         sql='insert_city.sql'
     )
-
 
     # Task tạo bảng Customer
     insert_customer = PostgresOperator(
