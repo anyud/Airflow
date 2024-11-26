@@ -162,4 +162,3 @@ cython_debug/
 #.idea/
 logs/scheduler/latest
 
-posgresql-vm-de6c5c9d2b35.json
