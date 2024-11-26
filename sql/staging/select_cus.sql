@@ -1,7 +1,7 @@
-TRUNCATE staging.Customer;
-INSERT INTO staging.Customer (Customer_ID, Name, Email, Phone, Address, City_ID, Age, Gender, Income, Customer_Segment)
-SELECT 
-    CAST(Customer_ID AS INTEGER) AS Customer_ID, -- Ép kiểu Customer_id từ VARCHAR sang INTEGER
+TRUNCATE staging.Customer CASCADE;
+INSERT INTO staging.Customer (Customer_id, Name, Email, Phone, Address, City_ID, Age, Gender, Income, Customer_Segment)
+SELECT DISTINCT ON (Customer_id)
+    CAST(Customer_id AS INTEGER) AS Customer_ID,
     Name,
     Email,
     Phone,
@@ -12,3 +12,4 @@ SELECT
     Income,
     Customer_Segment
 FROM bronze.Customer
+
