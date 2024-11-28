@@ -31,15 +31,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_transform:
-    target: dev
-    outputs:
-      dev:
-        type: bigquery
-        method: service-account
-        project: "posgresql-vm"
-        dataset: "silver"
-        keyfile: "D/Airflow/posgresql-vm-de6c5c9d2b35.json"
-        threads: 4
-        timeout_seconds: 300
-    example:
-      +materialized: view
+    example: 
+      +schema: gold  # Dataset cho các models trong example
+      +materialized: table
