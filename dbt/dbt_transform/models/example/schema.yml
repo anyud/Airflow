@@ -1,21 +1,33 @@
 
 version: 2
 
-models:
-  - name: my_first_dbt_model
-    description: "A starter dbt model"
-    columns:
-      - name: id
-        description: "The primary key for this table"
-        data_tests:
-          - unique
-          - not_null
+# Khai báo sources cho dataset silver
+sources:
+  - name: silver
+    description: "Dataset silver chứa các bảng đã được xử lý ở mức silver"
+    tables:
+      - name: combine
+        description: "Bảng kết hợp dữ liệu giao dịch và sản phẩm"
+      - name: cust_loc
+        description: "Bảng thông tin khách hàng và vị trí địa lý"
 
-  - name: my_second_dbt_model
-    description: "A starter dbt model"
-    columns:
-      - name: id
-        description: "The primary key for this table"
+  - name: test  # Dataset test chứa các bảng gốc
+    description: "Dataset test chứa dữ liệu gốc"
+    tables:
+      - name: transaction
+        description: "Bảng giao dịch gốc"
+      - name: customer
+        description: "Bảng thông tin khách hàng gốc"
+      - name: product
+        description: "Bảng thông tin sản phẩm gốc"
+      - name: city
+        description: "Bảng thông tin thành phố gốc"
+
+# Khai báo models
+
+
+        tests:
         data_tests:
-          - unique
-          - not_null
+        tests:
+        data_tests:
+
